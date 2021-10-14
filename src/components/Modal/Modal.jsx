@@ -12,6 +12,7 @@ export default function Modal({
   handleGalleryNav,
   imgIdx,
   children,
+  images,
 }) {
   const { modal, overlay } = s;
 
@@ -31,10 +32,16 @@ export default function Modal({
         break;
 
       case 'ArrowRight':
+        if (imgIdx >= images.length - 1) {
+          return;
+        }
         handleGalleryNav(++imgIdx);
         break;
 
       case 'ArrowLeft':
+        if (imgIdx <= 0) {
+          return;
+        }
         handleGalleryNav(--imgIdx);
         break;
 

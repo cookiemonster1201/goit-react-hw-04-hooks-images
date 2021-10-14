@@ -118,6 +118,22 @@ export default function ImageGallery({ query }) {
 
   function showNextImage(nextIdx) {
     console.log(nextIdx, 'nextid');
+    // if (nextIdx < 0) {
+    //   return;
+    // }
+    // setActiveIdx(state => {
+    //   switch (state) {
+    //     case images.length - 1:
+    //       return 0;
+
+    //     case 0:
+    //       return images.length - 1;
+
+    //     default:
+    //       return nextIdx;
+    //   }
+    // });
+
     switch (nextIdx) {
       case images.length:
         setActiveIdx(0);
@@ -165,6 +181,7 @@ export default function ImageGallery({ query }) {
             closeModal={toggleModal}
             handleGalleryNav={showNextImage}
             imgIdx={activeIdx}
+            images={images}
           >
             <img
               src={images[activeIdx].largeImageURL}
