@@ -25,7 +25,6 @@ export default function Modal({
   }, []);
 
   const onGalleryNav = ({ code }) => {
-    console.log(imgIdx, 'this id');
     switch (code) {
       case 'Escape':
         closeModal();
@@ -33,16 +32,18 @@ export default function Modal({
 
       case 'ArrowRight':
         if (imgIdx >= images.length - 1) {
-          return;
+          handleGalleryNav((imgIdx = 0));
+        } else {
+          handleGalleryNav(++imgIdx);
         }
-        handleGalleryNav(++imgIdx);
         break;
 
       case 'ArrowLeft':
         if (imgIdx <= 0) {
-          return;
+          handleGalleryNav((imgIdx = images.length - 1));
+        } else {
+          handleGalleryNav(--imgIdx);
         }
-        handleGalleryNav(--imgIdx);
         break;
 
       default:
@@ -68,4 +69,5 @@ Modal.propTypes = {
   closeModal: PropTypes.func.isRequired,
   handleGalleryNav: PropTypes.func.isRequired,
   imgIdx: PropTypes.number.isRequired,
+  images: PropTypes.arrayOf(PropTypes.shape).isRequired,
 };

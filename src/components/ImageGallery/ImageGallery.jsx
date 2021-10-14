@@ -116,37 +116,6 @@ export default function ImageGallery({ query }) {
     return activeIdx;
   }
 
-  function showNextImage(nextIdx) {
-    console.log(nextIdx, 'nextid');
-    // if (nextIdx < 0) {
-    //   return;
-    // }
-    // setActiveIdx(state => {
-    //   switch (state) {
-    //     case images.length - 1:
-    //       return 0;
-
-    //     case 0:
-    //       return images.length - 1;
-
-    //     default:
-    //       return nextIdx;
-    //   }
-    // });
-
-    switch (nextIdx) {
-      case images.length:
-        setActiveIdx(0);
-        break;
-      case -1:
-        setActiveIdx(images.length - 1);
-        break;
-      default:
-        setActiveIdx(nextIdx);
-        break;
-    }
-  }
-
   if (status === 'idle') {
     return <IdleView />;
   }
@@ -179,7 +148,7 @@ export default function ImageGallery({ query }) {
         {showModal && (
           <Modal
             closeModal={toggleModal}
-            handleGalleryNav={showNextImage}
+            handleGalleryNav={setActiveIdx}
             imgIdx={activeIdx}
             images={images}
           >
