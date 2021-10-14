@@ -24,7 +24,7 @@ export default function Modal({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const onGalleryNav = ({ code }) => {
+  function onGalleryNav({ code }) {
     switch (code) {
       case 'Escape':
         closeModal();
@@ -49,7 +49,7 @@ export default function Modal({
       default:
         toast.info('Press ESC to exit');
     }
-  };
+  }
 
   const handleBackdropClick = ({ target, currentTarget }) => {
     if (target === currentTarget) {

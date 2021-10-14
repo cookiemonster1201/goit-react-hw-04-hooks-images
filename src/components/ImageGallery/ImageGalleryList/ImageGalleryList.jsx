@@ -13,7 +13,8 @@ export default function ImageGalleryList({
   useEffect(() => {
     window.addEventListener('scroll', trackScroll);
     return window.removeEventListener('scroll', trackScroll);
-  }, [trackScroll]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <ul className={gallery} onClick={handleOpenModal}>
