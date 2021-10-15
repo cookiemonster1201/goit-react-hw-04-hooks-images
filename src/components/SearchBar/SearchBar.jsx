@@ -18,7 +18,6 @@ export default function SearchBar({ onSubmit }) {
     }
     const normalizedQuery = e.currentTarget.query.value.trim().toLowerCase();
     onSubmit(normalizedQuery);
-    setInputValue('');
     e.currentTarget.reset();
   }
 
